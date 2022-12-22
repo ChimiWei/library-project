@@ -18,12 +18,30 @@ def Booklist(request):
 
 
 def add(request):
-    dados = {}
+    data = {}
     form = BookForm(request.POST or None)
-    print(form)
-    print(BookForm)
     if form.is_valid():
         form.save()
-        return redirect("url_listagem")
-    dados["form"] = form
-    return render(request, "primeiroapp/add.html", dados)
+        return redirect("url_list")
+    data["form"] = form
+    return render(request, "primeiroapp/form.html", data)
+
+
+def update(request, pk):
+    data = {}
+    book = Book.objects.get(pk=pk)
+    form = BookForm(request.POST or None, instance=book)
+
+    if form.is_valid():
+        form.save()
+        return redirect("url_list")
+
+    data["form"] = form
+    data["book"] = book
+    return render(request, "primeiroapp/form.html", data)
+
+
+def delete(request, pk):
+    book = Book.objects.get(pk=pk)
+    book.delete()
+    return redirect("url_list")

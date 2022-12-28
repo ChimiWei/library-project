@@ -13,6 +13,24 @@
     <title>Adicionar Livro</title>
 </head>
 <body onload="styleForm()">
+    <header class="px-3">
+        <nav class="navbar navbar-expand navbar-light bg-light">
+            <a class="navbar-brand" href="/">Livraria</a>
+            <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item ">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'url_list'%}">Livros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'url_form'%}"> Adicionar</a>
+              </li>
+            </ul>
+            </div>
+        </nav>
+   </header>
     <div class="container py-4">
         <form>
             <div class="row py-2">
@@ -67,12 +85,13 @@
             <button type="submit" class="btn btn-primary"> Salvar </button>
         </form>
     </div>
-    <div>
+    <!--  <div>
         <form>
             {% csrf_token %}
             {{ form.as_p }}
         </form>
     </div>
+    -->
         <div>
             <a href="{% url 'home'%}"> Home </a>
         </div>

@@ -27,28 +27,37 @@
               </li>
             </ul>
             </div>
+                <form class="d-flex" method="POST">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
         </nav>
    </header>
-    <h1> Produtos </h1>
-    <ul>
+        <h1> Livros </h1>
+    <div class="container">
+        <div class="row">
         {% for book in books %}
-        <li> <a href="{% url 'url_update' book.id%}">{{ book.title }} - ${{ book.price}} </a></li>
-    </ul>
-            <ul>
-                <h3> Autor </h3>
-                {% for author in book.author.all %}
-                <li> {{ author.name }}</li>
-                <a href="{% url 'url_update' book.id%}"><button> Editar </button></a>
-                 <a href="{% url 'url_delete' book.id%}"><button> Deletar </button></a>
-                {% endfor %}
-            </ul>
-    {% endfor %}
-    <div>
-        <a href="{% url 'home'%}"> Home </a>
+            <div class="col-3">
+                <div class="card">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ book.title }}</h5>
+                    <p class="card-text">${{ book.price}}</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <h5 class="card-title px-2"> Autores </h5>
+                        {% for author in book.author.all %}
+                        <li class="list-group-item"> {{ author.name }}</li>
+                        {% endfor %}
+                  </ul>
+                  <div class="card-body d-flex justify-content-end">
+                        <a href="{% url 'url_update' book.id%}"><button class="btn btn-outline-primary mx-1"> Editar </button></a>
+                        <a href="{% url 'url_delete' book.id%}"><button class="btn btn-outline-danger"> Deletar </button></a>
+                  </div>
+                </div>
+            </div>
+         {% endfor %}
+        </div>
     </div>
-    <div>
-        <a href="{% url 'url_form'%}"> Adicionar </a>
-    </div>
-
 </body>
 </html>

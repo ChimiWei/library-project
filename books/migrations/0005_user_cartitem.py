@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('primeiroapp', '0004_book_isbn_book_launch'),
+        ('books', '0004_book_isbn_book_launch'),
     ]
 
     operations = [
@@ -29,8 +29,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('quantity', models.IntegerField(verbose_name='Quantidade')),
-                ('book', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='primeiroapp.book', verbose_name='Livro')),
-                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='primeiroapp.user', verbose_name='Usuário')),
+                ('book', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='books.book', verbose_name='Livro')),
+                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='books.user', verbose_name='Usuário')),
             ],
         ),
     ]

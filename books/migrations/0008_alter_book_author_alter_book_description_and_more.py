@@ -6,14 +6,14 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('primeiroapp', '0007_user_address_alter_user_cell_number_and_more'),
+        ('books', '0007_user_address_alter_user_cell_number_and_more'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='book',
             name='author',
-            field=models.ManyToManyField(to='primeiroapp.author', verbose_name='Autores'),
+            field=models.ManyToManyField(to='books.author', verbose_name='Autores'),
         ),
         migrations.AlterField(
             model_name='book',

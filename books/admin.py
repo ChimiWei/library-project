@@ -1,5 +1,5 @@
 from django.contrib import admin
-from primeiroapp.models import Author, Book, Category, User, CartItem
+from books.models import Author, Book, Category, User, CartItem
 # Register your models here.
 
 

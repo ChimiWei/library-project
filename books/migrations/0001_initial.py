@@ -40,8 +40,8 @@ class Migration(migrations.Migration):
                 ('publisher', models.CharField(blank=True, max_length=200, null=True, verbose_name='Editora')),
                 ('price', models.FloatField(default=100, verbose_name='Valor')),
                 ('description', models.TextField(blank=True, null=True)),
-                ('author', models.ManyToManyField(to='primeiroapp.author')),
-                ('category', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='primeiroapp.category', verbose_name='Categoria')),
+                ('author', models.ManyToManyField(to='books.author')),
+                ('category', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='books.category', verbose_name='Categoria')),
             ],
         ),
     ]

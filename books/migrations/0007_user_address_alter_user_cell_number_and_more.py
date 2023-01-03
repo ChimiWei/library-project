@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('primeiroapp', '0006_remove_user_birth_alter_user_cell_number'),
+        ('books', '0006_remove_user_birth_alter_user_cell_number'),
     ]
 
     operations = [

@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('primeiroapp', '0005_user_cartitem'),
+        ('books', '0005_user_cartitem'),
     ]
 
     operations = [

@@ -27,13 +27,22 @@
               </li>
             </ul>
             </div>
-                <form class="d-flex" method="POST">
+                <form class="d-flex" method="POST" action="{% url 'url_search' %}">
+                    {% csrf_token %}
                   <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
         </nav>
    </header>
-        <h1> Livros </h1>
+        <h1 class="display-4"> Livros </h1>
+    <div class="container my-3">
+        <a href="{% url 'url_filter' 0 100 %}"><button class="btn btn-outline-primary mx-1"> 0 - 100 </button></a>
+        <a href="{% url 'url_filter' 100 200 %}"><button class="btn btn-outline-primary mx-1"> 100 - 200 </button></a>
+        <a href="{% url 'url_filter' 200 300 %}"><button class="btn btn-outline-primary mx-1"> 200 - 300 </button></a>
+        <a href="{% url 'url_list' %}"><button class="btn btn-outline-primary mx-1"> Todos </button></a>
+    </div>
+
+
     <div class="container">
         <div class="row">
         {% for book in books %}
